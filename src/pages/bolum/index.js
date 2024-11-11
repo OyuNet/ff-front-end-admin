@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useGlobal } from 'reactn'
-import { Redirect } from 'react-router-dom'
 
 import { useTheme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -14,6 +13,7 @@ import EpisodeWatchLinkIndex from './izlemelinkiindex'
 import EpisodeDownloadLinkIndex from './indirmelinkiindex'
 
 import { a11yProps, TabPanel } from "../../components/pages/default-components";
+import { Navigate } from 'react-router-dom';
 
 export default function VerticalTabs() {
     const theme = useTheme()
@@ -35,7 +35,7 @@ export default function VerticalTabs() {
 
     return (
         <>
-            {error ? <Redirect to="/" /> : ""}
+            {error ? <Navigate to="/" replace/> : ""}
             <AppBar position="static" color="default">
                 <Tabs
                     value={value}

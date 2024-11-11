@@ -1,5 +1,5 @@
 import React, { setGlobal, addReducer } from 'reactn'
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import addReactNDevTools from 'reactn-devtools'
 import { indexURL, isAdmin, jikanIndex } from './config/api-routes'
 import axios from './config/axios/axios'
@@ -12,6 +12,7 @@ import theme from './config/theme/index'
 import './index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { useEffect } from 'react';
 
 addReactNDevTools()
 
@@ -173,7 +174,17 @@ function Mount() {
     )
 }
 
-ReactDOM.render(<Mount />, document.getElementById('app-mount'))
+function AppWithCallbackAfterRender() {
+    useEffect(() => {
+        console.log("App rendered.");
+    });
+
+    return <Mount />
+}
+
+const container = document.getElementById('app-mount');
+const root = createRoot(container);
+root.render(<AppWithCallbackAfterRender />);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

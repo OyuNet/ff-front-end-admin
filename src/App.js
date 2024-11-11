@@ -1,6 +1,6 @@
 import React, { useEffect, lazy, Suspense } from 'react';
 import { useDispatch, useGlobal } from 'reactn'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 import Wrapper from './components/hoc/wrapper';
 import Login from './components/user/login'
@@ -42,7 +42,7 @@ function App() {
           return (
             <Router basename="/admin">
               <Wrapper>
-                <Switch>
+                <Routes>
                   <Suspense fallback={<p></p>}>
                     <Route path="/" exact component={IndexSayfa} />
                     <Route path="/anime" exact component={AnimeSayfa} />
@@ -54,7 +54,7 @@ function App() {
                     <Route path="/yetki" exact component={YetkiSayfa} />
                     <Route path="/kayitlar" exact component={KayitlarSayfa} />
                   </Suspense>
-                </Switch>
+                </Routes>
               </Wrapper>
             </Router>
           )

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useGlobal } from 'reactn'
-import { Redirect } from 'react-router-dom'
+import { Navigate } from 'react-router-dom';
 import axios from '../../config/axios/axios'
 
 import Grid from '@material-ui/core/Grid'
@@ -71,7 +71,7 @@ export default function VerticalTabs() {
 
     return (
         <>
-            {error ? <Redirect to="/" /> : ""}
+            {error ? <Navigate to="/" replace /> : ""}
             <Grid container>
                 <Grid item xs={12}>
                     <Box p={2} bgcolor="background.level2">

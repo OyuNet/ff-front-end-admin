@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useGlobal } from 'reactn'
-import { Redirect } from 'react-router-dom'
 import axios from '../../config/axios/axios'
 
 import { useTheme } from '@material-ui/core/styles';
@@ -14,6 +13,7 @@ import WarningBox from '../../components/warningerrorbox/warning';
 import { watchLinkList } from '../../config/api-routes';
 
 import { a11yProps, TabPanel } from "../../components/pages/default-components";
+import { Navigate } from 'react-router-dom';
 
 export default function EpisodeWatchLinkIndex() {
     const theme = useTheme()
@@ -47,7 +47,7 @@ export default function EpisodeWatchLinkIndex() {
 
     return (
         <>
-            {error ? <Redirect to="/" /> : ""}
+            {error ? <Navigate to="/" replace /> : ""}
             <AppBar position="static" color="default">
                 <Tabs
                     value={value}

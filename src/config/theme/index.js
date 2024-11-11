@@ -5,7 +5,7 @@
 
 import custom from './extra'
 import merge from 'lodash-es/merge'
-import { createMuiTheme } from '@material-ui/core/styles'
+import { createTheme } from '@material-ui/core/styles'
 
 const theme = {
     palette: {
@@ -113,4 +113,4 @@ const theme = {
 
 merge(theme, custom)
 
-export default createMuiTheme(theme);
+export default createTheme(theme);
